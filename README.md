@@ -4,10 +4,10 @@ A MATLAB implementation of [Being Robust (in High Dimensions) Can Be Practical](
 Prerequisites 
 ===
 This project requires installation of the following packages:
-*[AgnosticMeanAndCovarianceCode](https://github.com/kal2000/AgnosticMeanAndCovarianceCode): An implementation of the algorithms from the paper [Agnostic Estimation of Mean and Covariance](https://arxiv.org/abs/1604.06968) from FOCS 2016, authored by [Kevin A. Lai](https://www.cc.gatech.edu/~klai9/), [Anup B. Rao](https://sites.google.com/site/anupraob/), and [Santosh Vempala](https://www.cc.gatech.edu/~vempala/). Used to compare the statistical accuracy of our algorithms against theirs.
-*[CVX](http://cvxr.com/cvx/): A MATLAB library for convex optimization. Used for implementing methods from [Robust Principal Component Analysis?](https://dl.acm.org/citation.cfm?id=1970395) and [Robust PCA via Outlier Pursuit](https://arxiv.org/abs/1010.4237).
-*[Fast SVD and PCA](https://www.mathworks.com/matlabcentral/fileexchange/47132-fast-svd-and-pca): Used for faster computation of SVD for some large matrices.
-*[Novembre_etal_2008_misc](https://github.com/NovembreLab/Novembre_etal_2008_misc): A repository containing data from [Genes Mirror Geography in Europe](https://www.nature.com/articles/nature07331). Used for our semi-synthetic experiments. Code from `files/` should be extracted to the folder `robust-filter/Novembre_etal_2008_misc/`.
+* [AgnosticMeanAndCovarianceCode](https://github.com/kal2000/AgnosticMeanAndCovarianceCode): An implementation of the algorithms from the paper [Agnostic Estimation of Mean and Covariance](https://arxiv.org/abs/1604.06968) from FOCS 2016, authored by [Kevin A. Lai](https://www.cc.gatech.edu/~klai9/), [Anup B. Rao](https://sites.google.com/site/anupraob/), and [Santosh Vempala](https://www.cc.gatech.edu/~vempala/). Used to compare the statistical accuracy of our algorithms against theirs.
+* [CVX](http://cvxr.com/cvx/): A MATLAB library for convex optimization. Used for implementing methods from [Robust Principal Component Analysis?](https://dl.acm.org/citation.cfm?id=1970395) and [Robust PCA via Outlier Pursuit](https://arxiv.org/abs/1010.4237).
+* [Fast SVD and PCA](https://www.mathworks.com/matlabcentral/fileexchange/47132-fast-svd-and-pca): Used for faster computation of SVD for some large matrices.
+* [Novembre_etal_2008_misc](https://github.com/NovembreLab/Novembre_etal_2008_misc): A repository containing data from [Genes Mirror Geography in Europe](https://www.nature.com/articles/nature07331). Used for our semi-synthetic experiments. Code from `files/` should be extracted to the folder `robust-filter/Novembre_etal_2008_misc/`.
 
 Explanation of Files
 ===
