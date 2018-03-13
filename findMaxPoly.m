@@ -5,7 +5,7 @@ function [ c, M, lambda ] = findMaxPoly(data)
 % with unit variance
 
     [N, d] = size(data);
-	v = flatten(eye(d));
+    v = flatten(eye(d));
     
     dataKron = zeros(N, d * d);
     for i = 1:N

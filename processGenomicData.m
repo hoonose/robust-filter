@@ -7,14 +7,14 @@ lambda = 0.2;
 subsampSize = 100;
 
 %Process mappings from color names to numbers
-rawColor = importdata('./Novembre_etal_2008_misc-master/files/colors.txt');
+rawColor = importdata('./Novembre_etal_2008_misc/files/colors.txt');
 keys = rawColor.rowheaders;
 vals = mat2cell(rawColor.data, ones(37,1));
 colorMap = containers.Map(keys, vals);
 
 %Process data points
-A = importdata('./Novembre_etal_2008_misc-master/files/fixed.eigs');
-eigs = importdata('./Novembre_etal_2008_misc-master/files/POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eval');
+A = importdata('./Novembre_etal_2008_misc/files/fixed.eigs');
+eigs = importdata('./Novembre_etal_2008_misc/files/POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eval');
 eigs = eigs(1:d);
 data = zeros(length(A), d);
 for i = 1:length(A)
@@ -23,7 +23,7 @@ for i = 1:length(A)
 end
 
 %Convert data point color names to numbers
-colorsFid = fopen('./Novembre_etal_2008_misc-master/files/POPRESID_Color.txt');
+colorsFid = fopen('./Novembre_etal_2008_misc/files/POPRESID_Color.txt');
 colorsStrings = textscan(colorsFid, '%d %s');
 colorsStrings = colorsStrings{2};
 dataColors = zeros(length(colorsStrings),3);
