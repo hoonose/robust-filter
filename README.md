@@ -12,36 +12,36 @@ This project requires installation of the following packages:
 Explanation of Files
 ===
 Code for estimating the mean of a Gaussian:
-*`filterGaussianMean.m`: Our algorithm
-*`ransacGaussianMean.m`: A RANSAC-based method
-*`geoMedianGaussianMean.m`: Geometric median
-*`pruneGaussianMean.m`: Coordinate-wise median, followed by naive pruning of distant points
+* `filterGaussianMean.m`: Our algorithm
+* `ransacGaussianMean.m`: A RANSAC-based method
+* `geoMedianGaussianMean.m`: Geometric median
+* `pruneGaussianMean.m`: Coordinate-wise median, followed by naive pruning of distant points
 
 Code for estimating the covariance of a Gaussian:
-*`filterGaussianCov.m`: Our algorithm
-    *`findMaxPoly.m`: Finds the structured degree-two polynomial which is maximized by the data
-    *`flatten.m` and `sharpen.m`: Convert between matrix and vector representations
-*`filterGaussianCovTuned.m`: A version of our algorithm which is tuned to select hyperparameters 
-*`pruneGaussianCov.m`: Naive pruning of distant points
-*`ransacMVE.m`: A RANSAC-based method
-    *`MVE.m`: Approximating the MVE for a small dataset
-*`ADPCP.m`: Principal Component Pursuit by Alternating Directions, from [Robust Principal Component Analysis?](https://dl.acm.org/citation.cfm?id=1970395)
-    *`specThresh.m` and `shrinkage.m`: Singular value thresholding and shrinkage operators
-    *`norm_nuc.m`: Compute the nuclear norm of a matrix
-*`mahalanobis.m`: Compute Mahalanobis rescaling of a matrix
+* `filterGaussianCov.m`: Our algorithm
+    * `findMaxPoly.m`: Finds the structured degree-two polynomial which is maximized by the data
+    * `flatten.m` and `sharpen.m`: Convert between matrix and vector representations
+* `filterGaussianCovTuned.m`: A version of our algorithm which is tuned to select hyperparameters 
+* `pruneGaussianCov.m`: Naive pruning of distant points
+* `ransacMVE.m`: A RANSAC-based method
+    * `MVE.m`: Approximating the MVE for a small dataset
+* `ADPCP.m`: Principal Component Pursuit by Alternating Directions, from [Robust Principal Component Analysis?](https://dl.acm.org/citation.cfm?id=1970395)
+    * `specThresh.m` and `shrinkage.m`: Singular value thresholding and shrinkage operators
+    * `norm_nuc.m`: Compute the nuclear norm of a matrix
+* `mahalanobis.m`: Compute Mahalanobis rescaling of a matrix
 
 Test files, used for comparing methods for mean and covariance estimation
-*`testMeanEstimators.m`: Compares mean estimation algorithms
-*`testGeoMedian.m`: Demonstrates that the geometric median incurs an O(sqrt(d)) loss in accuracy
-*`testCovEstimators.m`: Compares covariance estimation algorithms
-*`processGenomicData.m`: Applies covariance estimation algorithms to semi-synthetic genome dataset
+* `testMeanEstimators.m`: Compares mean estimation algorithms
+* `testGeoMedian.m`: Demonstrates that the geometric median incurs an O(sqrt(d)) loss in accuracy
+* `testCovEstimators.m`: Compares covariance estimation algorithms
+* `processGenomicData.m`: Applies covariance estimation algorithms to semi-synthetic genome dataset
 
 Reproducibility
 ===
 Figures in the paper can be reproduced by running the following scripts:
-*Figure 1: `testMeanEstimators.m`
-*Figure 2: `testCovEstimators.m`
-*Figures 3 and 4: `processGenomicData.m`
+* Figure 1: `testMeanEstimators.m`
+* Figure 2: `testCovEstimators.m`
+* Figures 3 and 4: `processGenomicData.m`
 
 Reference
 ===
