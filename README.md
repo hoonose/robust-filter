@@ -30,7 +30,7 @@ Code for estimating the covariance of a Gaussian:
     * `norm_nuc.m`: Compute the nuclear norm of a matrix
 * `mahalanobis.m`: Compute Mahalanobis rescaling of a matrix
 
-Test files, used for comparing methods for mean and covariance estimation
+Test files, used for comparing methods for mean and covariance estimation:
 * `testMeanEstimators.m`: Compares mean estimation algorithms
 * `testGeoMedian.m`: Demonstrates that the geometric median incurs an O(sqrt(d)) loss in accuracy
 * `testCovEstimators.m`: Compares covariance estimation algorithms
