@@ -7,23 +7,26 @@ lambda = 0.2;
 subsampSize = 100;
 
 %Process mappings from color names to numbers
-rawColor = importdata('./Novembre_etal_2008_misc/files/colors.txt');
+rawColor = importdata('./genomicData/colors.txt');
 keys = rawColor.rowheaders;
 vals = mat2cell(rawColor.data, ones(37,1));
 colorMap = containers.Map(keys, vals);
 
 %Process data points
-A = importdata('./Novembre_etal_2008_misc/files/fixed.eigs');
-eigs = importdata('./Novembre_etal_2008_misc/files/POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eval');
+fid = fopen('./genomicData/POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eigs');
+A = textscan(fid,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %s', 'HeaderLines',1);
+fclose(fid);
+V = [A{3} A{4} A{5} A{6} A{7} A{8} A{9} A{10} A{11} A{12} A{13} A{14} A{15} A{16} A{17} A{18} A{19} A{20} A{21} A{22}]; 
+
+eigs = importdata('./genomicData/POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eval');
 eigs = eigs(1:d);
 data = zeros(length(A), d);
-for i = 1:length(A)
-    v = str2num(A{i,1}(1:265));
-    data(i,:) = v(3:end).*eigs';
+for i = 1:size(V,1)
+    data(i,:) = V(i,:).*eigs';
 end
 
 %Convert data point color names to numbers
-colorsFid = fopen('./Novembre_etal_2008_misc/files/POPRESID_Color.txt');
+colorsFid = fopen('./genomicData/POPRESID_Color.txt');
 colorsStrings = textscan(colorsFid, '%d %s');
 colorsStrings = colorsStrings{2};
 dataColors = zeros(length(colorsStrings),3);
@@ -32,7 +35,7 @@ for i = 1:length(colorsStrings)
 end
 
 %Generate noisy points
-N = length(A)/(1-eps);
+N = size(V,1)/(1-eps);
 noise = (1/24)*[randi([0, 2], round(eps*N), d/2) randi([2, 3], round(eps*N), d/2)];
 
 %Generate noisy point colors
