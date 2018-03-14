@@ -1,4 +1,3 @@
-%Generates Figures 3 and 4
 clear;
 eps = 0.10;
 tau = 0.1;
