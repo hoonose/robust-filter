@@ -8,7 +8,7 @@ This project requires installation of the following packages:
 * [Novembre_etal_2008_misc](https://github.com/NovembreLab/Novembre_etal_2008_misc): A repository containing data from [Genes Mirror Geography in Europe](https://www.nature.com/articles/nature07331). Used for our semi-synthetic experiments. Extract the following three files to `robust-filter/genomicData`: 
     * `POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eigs`
     * `POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eval`
-    * `POPRESID_Color.txt`.
+    * `POPRESID_Color.txt`
 
 Optional
 ---
