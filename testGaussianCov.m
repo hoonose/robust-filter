@@ -19,8 +19,8 @@ end
 
 
 for d = ds
-    fprintf('d = %d\n', d)
     N =  0.5*d / eps^2;
+    fprintf('Training with dimension = %d, number of samples = %d \n', d, round(N, 0))
     sumEmpErr = 0;
     sumNoisyEmpErr = 0;
     sumFilterErr = 0;
@@ -39,18 +39,23 @@ for d = ds
     end
     Z = [X; Y];
 
-    fprintf('Sampling error without noise\n')
+    fprintf('Sampling error without noise...')
     empCov = cov(X);
     sumEmpErr = sumEmpErr + norm(mahalanobis(empCov, covar) - eye(d), 'fro');
+    fprintf('done\n')
 
-    fprintf('Sampling error with noise\n')
+    
+    fprintf('Sampling error with noise...')
     empCov = cov(Z);
     sumNoisyEmpErr = sumNoisyEmpErr + norm(mahalanobis(empCov, covar) - eye(d), 'fro');
-
-    fprintf('Filter\n')
+    fprintf('done\n')
+    
+    
+    fprintf('Filter...')
     [ourCov, filterPoints, ~] = filterGaussianCovTuned(Z, zeros(size(Z)),  eps, tau, false);
     sumFilterErr = sumFilterErr + norm(mahalanobis(ourCov, covar) - eye(d), 'fro');
-
+    fprintf('done\n')
+    
     sampErr = [sampErr sumEmpErr];
     noisyEmpErr = [noisyEmpErr sumNoisyEmpErr];
     filterErr = [filterErr sumFilterErr];
