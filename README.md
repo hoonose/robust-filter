@@ -15,23 +15,16 @@ The following packages are optional, and are only used for comparison of our alg
 
 Explanation of Files
 ===
-Code for estimating the mean of a Gaussian:
-* `filterGaussianMean.m`: Our algorithm
-* `ransacGaussianMean.m`: A RANSAC-based method
-* `geoMedianGaussianMean.m`: Geometric median
-* `pruneGaussianMean.m`: Coordinate-wise median, followed by naive pruning of distant points
+This repository contains several algorithms -- we identify files relevant to our algorithm, and those which are only used for comparison with alternatives.
 
-Code for estimating the covariance of a Gaussian:
-* `filterGaussianCov.m`: Our algorithm
+Our Filter algorithms' files
+---
+The following are files which are used in our algorithms' implementations:
+* `filterGaussianMean.m`: Our algorithm for estimating the mean of a Gaussian
+* `filterGaussianCov.m`: Our algorithm for estimating the covariance of a Gaussian
     * `findMaxPoly.m`: Finds the structured degree-two polynomial which is maximized by the data
     * `flatten.m` and `sharpen.m`: Convert between matrix and vector representations
-* `filterGaussianCovTuned.m`: A version of our algorithm which is tuned to select hyperparameters 
-* `pruneGaussianCov.m`: Naive pruning of distant points
-* `ransacMVE.m`: A RANSAC-based method
-    * `MVE.m`: Approximating the MVE for a small dataset
-* `ADPCP.m`: Principal Component Pursuit by Alternating Directions, from [Robust Principal Component Analysis?](https://dl.acm.org/citation.cfm?id=1970395)
-    * `specThresh.m` and `shrinkage.m`: Singular value thresholding and shrinkage operators
-    * `norm_nuc.m`: Compute the nuclear norm of a matrix
+* `filterGaussianCovTuned.m`: A version of our covariance estimation algorithm which is tuned to select hyperparameters 
 * `mahalanobis.m`: Compute Mahalanobis rescaling of a matrix
 
 Test files, for demonstrating performance of our estimators for mean and covariance:
@@ -39,7 +32,24 @@ Test files, for demonstrating performance of our estimators for mean and covaria
 * `testGaussianCov.m`: Tests our covariance estimation algorithm
 * `testGenomicData.m`: Tests our covariance estimation algorithm on semi-synthetic genome dataset
 
-Comparison files, for evaluating and comparing the performance of other estimators for mean and covariance:
+Other algorithms' files
+---
+The following are files which are used for comparison with other competing algorithms:
+
+Algorithms for estimating the mean of a Gaussian:
+* `ransacGaussianMean.m`: A RANSAC-based method
+* `geoMedianGaussianMean.m`: Geometric median
+* `pruneGaussianMean.m`: Coordinate-wise median, followed by naive pruning of distant points
+
+Algorithms for estimating the covariance of a Gaussian:
+* `pruneGaussianCov.m`: Naive pruning of distant points
+* `ransacMVE.m`: A RANSAC-based method
+    * `MVE.m`: Approximating the MVE for a small dataset
+* `ADPCP.m`: Principal Component Pursuit by Alternating Directions, from [Robust Principal Component Analysis?](https://dl.acm.org/citation.cfm?id=1970395)
+    * `specThresh.m` and `shrinkage.m`: Singular value thresholding and shrinkage operators
+    * `norm_nuc.m`: Compute the nuclear norm of a matrix
+
+Comparison files, for evaluating and comparing the performance of estimators for mean and covariance:
 * `testGeoMedian.m`: Demonstrates that the geometric median incurs an O(sqrt(d)) loss in accuracy
 * `compareMeanEstimators.m`: Compares mean estimation algorithms
 * `compareCovEstimators.m`: Compares covariance estimation algorithms
@@ -47,7 +57,7 @@ Comparison files, for evaluating and comparing the performance of other estimato
 
 Reproducibility
 ===
-Figures in the paper can be reproduced by running the following scripts:
+Figures in the paper can be approximately reproduced by running the following scripts:
 * Figure 1: `compareMeanEstimators.m`
 * Figure 2: `compareCovEstimators.m`
 * Figures 3 and 4: `compareGenomicData.m`
