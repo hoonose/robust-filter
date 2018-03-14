@@ -22,8 +22,8 @@ end
 
 
 for d = ds
-    fprintf('d = %d\n', d)
     N =  0.5*d / eps^2;
+    fprintf('Training with dimension = %d, number of samples = %d \n', d, round(N, 0))
     sumEmpErr = 0;
     sumNoisyEmpErr = 0;
     sumFilterErr = 0;
@@ -45,28 +45,36 @@ for d = ds
     end
     Z = [X; Y];
 
-    fprintf('empirical w/o noise\n')
+    fprintf('Sampling Error w/o noise...');
     empCov = cov(X);
     sumEmpErr = sumEmpErr + norm(mahalanobis(empCov, covar) - eye(d), 'fro');
+    fprintf('done\n')
 
-    fprintf('empirical w noise\n')
+    fprintf('Sampling Error with noise...');
     empCov = cov(Z);
     sumNoisyEmpErr = sumNoisyEmpErr + norm(mahalanobis(empCov, covar) - eye(d), 'fro');
+    fprintf('done\n')
 
-    fprintf('Filter\n')
+    fprintf('Filter...')
     [ourCov, filterPoints, ~] = filterGaussianCovTuned(Z, zeros(size(Z)),  eps, tau, false);
     sumFilterErr = sumFilterErr + norm(mahalanobis(ourCov, covar) - eye(d), 'fro');
+    fprintf('done\n')
 
-    fprintf('Prune\n')
+    fprintf('Prune...')
     [pruneCov, prunePoints, ~] = pruneGaussianCov(Z, zeros(size(Z)),  tau, false);
     sumPruneErr = sumPruneErr + norm(mahalanobis(pruneCov, covar) - eye(d), 'fro');
+    fprintf('done\n')
 
-    fprintf('RANSAC\n')
+
+    fprintf('RANSAC...')
     sumMVEErr = sumMVEErr + norm(mahalanobis(ransacMVE(Z, eps, ceil(d / eps), 1000),  covar)  -  eye(d), 'fro');
+    fprintf('done\n')
 
-    fprintf('LRV\n')
+    fprintf('LRV...')
     [~, lrvCov, ~] = agnosticCovarianceGeneral(Z, eps);
     sumLRVErr = sumLRVErr + norm(mahalanobis(lrvCov, covar) - eye(d), 'fro') ;
+    fprintf('done\n')
+
 
     sampErr = [sampErr sumEmpErr];
     noisyEmpErr = [noisyEmpErr sumNoisyEmpErr];

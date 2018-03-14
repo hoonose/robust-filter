@@ -14,8 +14,8 @@ prunedErr = [];
 ds = 100:50:400;
 
 for d = ds
-    fprintf('d = %d\n', d)
     N = 10*floor(d/eps^2);
+    fprintf('Training with dimension = %d, number of samples = %d \n', d, round(N, 0))
     sumFilterErr = 0;
     sumMedErr = 0;
     sumRansacErr = 0;
@@ -26,32 +26,40 @@ for d = ds
 
     X =  mvnrnd(zeros(1,d), eye(d), round((1-eps)*N)) + ones(round((1-eps)*N), d);
 
-    fprintf('Sampling Error w/o noise\n');
+    fprintf('Sampling Error w/o noise...');
     sumSampErr = sumSampErr + norm(mean(X) - ones(1,d));
+    fprintf('done\n')
 
     Y1 = randi([0 1], round(0.5*eps*N), d); 
     Y2 = [12*ones(round(0.5*eps*N),1), -2 * ones(round(0.5*eps*N), 1), zeros(round(0.5 * eps * N), d-2)];
     X = [X; Y1; Y2];
 
-    fprintf('Sampling Error w noise\n');
+    fprintf('Sampling Error with noise...');
     sumNoisySampErr = sumNoisySampErr + norm(mean(X) - ones(1,d));
-
-    fprintf('Pruning\n');
+    fprintf('done\n')
+    
+    
+    fprintf('Pruning...');
     [prunedMean, ~] = pruneGaussianMean(X, eps);
     sumPrunedErr = sumPrunedErr + norm(prunedMean - ones(1, d));
-
-    fprintf('Median\n')
+    fprintf('done\n')
+    
+    fprintf('Median...')
     gm = geoMedianGaussianMean(X);
     sumMedErr = sumMedErr + norm(gm - ones(1, d));
-
-    fprintf('Ransac\n')
+    fprintf('done\n')
+    
+    fprintf('Ransac...')
     sumRansacErr = sumRansacErr + norm(ransacGaussianMean(X, eps, tau) - ones(1, d));
+    fprintf('done\n')
 
-    fprintf('LRV\n')
+    fprintf('LRV...')
     sumLRVErr = sumLRVErr + norm(agnosticMeanGeneral(X, eps) - ones(1,d));
+    fprintf('done\n')
 
-    fprintf('Filter\n')
+    fprintf('Filter...')
     sumFilterErr = sumFilterErr + norm(filterGaussianMean(X, eps, tau, cher) - ones(1, d));
+    fprintf('done\n')
 
     medianErr = [medianErr sumMedErr];
     ransacErr = [ransacErr sumRansacErr];

@@ -3,8 +3,8 @@ eps = 0.5;
 dims = floor(linspace(1,700,10));
 err = [];
 for d = dims
-    fprintf('In dimension %f\n', d);
     N = ceil(10*(d/eps^2));
+    fprintf('Training with dimension = %d, number of samples = %d \n', d, round(N, 0))
     sumErr = 0;
     for i = 1:3
         X =  mvnrnd(zeros(1,d), eye(d), round((1-eps)*N)) + ones(round((1-eps)*N), d); 
