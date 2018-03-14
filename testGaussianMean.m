@@ -17,7 +17,7 @@ for d = ds
 
     X =  mvnrnd(zeros(1,d), eye(d), round((1-eps)*N)) + ones(round((1-eps)*N), d);
 
-    fprintf('Sampling Error without noise...');
+    fprintf('Sampling Error w/o noise...');
     sumSampErr = sumSampErr + norm(mean(X) - ones(1,d));
     fprintf('...done\n')
     

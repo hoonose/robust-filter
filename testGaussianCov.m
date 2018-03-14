@@ -39,7 +39,7 @@ for d = ds
     end
     Z = [X; Y];
 
-    fprintf('Sampling error without noise...')
+    fprintf('Sampling error w/o noise...')
     empCov = cov(X);
     sumEmpErr = sumEmpErr + norm(mahalanobis(empCov, covar) - eye(d), 'fro');
     fprintf('done\n')
