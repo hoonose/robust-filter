@@ -22,7 +22,7 @@ This repository contains several algorithms -- we identify files relevant to our
 
 Our Filter algorithms' files
 ---
-The following are files which are used in our algorithms' implementations:
+The following are files which are used in our algorithms' implementations, and can all be found in the `filter_code` subdirectory.
 * `filterGaussianMean.m`: Our algorithm for estimating the mean of a Gaussian
 * `filterGaussianCov.m`: Our algorithm for estimating the covariance of a Gaussian
     * `findMaxPoly.m`: Finds the structured degree-two polynomial which is maximized by the data
@@ -30,14 +30,14 @@ The following are files which are used in our algorithms' implementations:
 * `filterGaussianCovTuned.m`: A version of our covariance estimation algorithm which is tuned to select hyperparameters 
 * `mahalanobis.m`: Compute Mahalanobis rescaling of a matrix
 
-Test files, for demonstrating performance of our estimators for mean and covariance:
+Test files, for demonstrating performance of our estimators for mean and covariance. These can bef ound in the `test_code` subdirectory:
 * `testGaussianMean.m`: Tests our mean estimation algorithm
 * `testGaussianCov.m`: Tests our covariance estimation algorithm
 * `testGenomicData.m`: Tests our covariance estimation algorithm on semi-synthetic genome dataset
 
 Other algorithms' files
 ---
-The following are files which are used for comparison with other competing algorithms:
+The following are files which are used for comparison with other competing algorithms, and can be found in the `comparison_code` subdirectory:
 
 Algorithms for estimating the mean of a Gaussian:
 * `ransacGaussianMean.m`: A RANSAC-based method
@@ -52,7 +52,7 @@ Algorithms for estimating the covariance of a Gaussian:
     * `specThresh.m` and `shrinkage.m`: Singular value thresholding and shrinkage operators
     * `norm_nuc.m`: Compute the nuclear norm of a matrix
 
-Comparison files, for evaluating and comparing the performance of estimators for mean and covariance:
+Comparison files, for evaluating and comparing the performance of estimators for mean and covariance. These can be found in the `comparison_code` subdirectory:
 * `testGeoMedian.m`: Demonstrates that the geometric median incurs an O(sqrt(d)) loss in accuracy
 * `compareMeanEstimators.m`: Compares mean estimation algorithms
 * `compareCovEstimators.m`: Compares covariance estimation algorithms
