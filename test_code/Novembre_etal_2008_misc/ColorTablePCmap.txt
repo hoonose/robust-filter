@@ -1,0 +1,41 @@
+Germany	gold1
+Netherlands	orange
+Austria	tan3
+Luxembourg	yellow
+Czech Republic	yellowgreen
+Hungary	gold2
+Slovakia	gold3
+Sweden	aquamarine4
+Norway	aquamarine2
+Denmark	aquamarine3
+Poland	darkolivegreen2
+Russian Federation	green2
+Ukraine	green3
+Finland	green4
+Latvia	green
+United Kingdom	pink
+Ireland	red#lightblue
+Scotland	lightpink3
+Wales	yellow
+Italy	sienna
+Yugoslavia	dodgerblue1
+Romania	darkseagreen4
+Bulgaria	darkseagreen
+Croatia	dodgerblue3
+Macedonia, The Former Yugoslav Republic Of	cadetblue1
+Kosovo	deepskyblue2
+Slovenia	deepskyblue4
+Bosnia and Herzegovina	cadetblue
+Albania	cadetblue3
+Serbia and Montenegro	cadetblue2
+Greece	deepskyblue1
+Spain	blue
+Portugal	darkorchid3 
+Switzerland	violetred1
+Swiss-French	violetred1
+Swiss-German	violetred3
+Swiss-Italian	palevioletred2 
+France	orange
+Belgium	orangered1
+Turkey	springgreen4
+Cyprus	red

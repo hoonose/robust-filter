@@ -1,0 +1,56 @@
+
+1/12/14
+
+This repository contains several files that are helpful for reproducing the main figure of the Novembre et al 2008 ``Genes Mirror Geography in Europe'' paper.
+
+The raw POPRES data must be accessed via dbGAP.
+
+File descriptions:
+
+==== Main files for plotting of PCA plot  ====
+
+PCA.txt : File with basic results for plotting
+        ID: The individual ID
+        plabels:  Population labels
+        alabels: Abbreviated label
+        longitude: longitude used in study for that population
+        latitude: latitude used in study for that population
+        PC1: self-explanatory
+        PC2: self-explanatory
+        RotNS:  North/South coordinate after rotation of PCA (see methods)
+        RotEW: East/west coordinate after rotation of PCA (see methods)
+
+POPRESID_Color.txt : Color used for each individual in plot
+
+==== Files for geographic plot ====
+
+world_countries.rda : World polygon data
+ColorTablePCmap.txt : Color used for each country in the geographic inset map
+
+To generate the colored geographic map:
+
+library(sp)
+library(rgdal)
+load("world_countries.rda")
+coldatamap=read.table("ColorTablePCmap.txt",sep="\t",as.is=TRUE)
+names(coldatamap)=c("cntry","color")
+row.names(coldatamap)=toupper(coldatamap$cntry)
+plot(worldpolys,xlim=c(-8,35),ylim=c(35,60),col=coldatamap[toupper(worldpolys$names),"color"])
+
+===== Miscellaneous files =====
+
+POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.bim : A .bim file in plink format describing the 197,146 markers used in the thinned dataset for the PCA analysis.
+
+POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.fam : A .fam file in plink format describing the 1,387 individuals used in the thinned dataset for the PCA analysis.
+
+affyProves-rsid.txt : A mapping of Affymetrix probe names to rsid's.
+
+POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.par : Input file for smartpca
+POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eigs : Smartpca output with individual coordinates
+POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eval : Smartpca output with eigenvalues 
+POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.snpeigs : Smartpca output containing SNP loadings that define the principal components
+
+
+
+
+

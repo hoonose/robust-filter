@@ -1,0 +1,15 @@
+genotypename: ../../data/POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.bed
+snpname: ../../data/POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.bim
+indivname: ../../data/POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.fam
+snpweightoutname: ./POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0.snpeigs
+evecoutname: ./POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eigs
+evaloutname: ./POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.eval
+phylipoutname: ./POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.fst
+numoutevec: 20
+numoutlieriter: 0
+outlieroutname: ./POPRES_08_24_01.EuroThinFinal.LD_0.8.exLD.out0-PCA.out
+altnormstyle: NO
+missingmode: NO
+nsnpldregress: 0
+noxdata: YES
+nomalexhet: YES
