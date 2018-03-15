@@ -6,7 +6,7 @@ lambda = 0.2;
 subsampSize = 100;
 
 %Process mappings from color names to numbers
-rawColor = importdata('./genomicData/colors.txt');
+rawColor = importdata('../genomicData/colors.txt');
 keys = rawColor.rowheaders;
 vals = mat2cell(rawColor.data, ones(37,1));
 colorMap = containers.Map(keys, vals);
