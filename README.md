@@ -52,7 +52,7 @@ Algorithms for estimating the covariance of a Gaussian:
     * `specThresh.m` and `shrinkage.m`: Singular value thresholding and shrinkage operators
     * `norm_nuc.m`: Compute the nuclear norm of a matrix
 
-Comparison files, for evaluating and comparing the performance of estimators for mean and covariance. These can be found in the `comparisonCode` subdirectory:
+Comparison files, for evaluating and comparing the performance of estimators for mean and covariance:
 * `testGeoMedian.m`: Demonstrates that the geometric median incurs an O(sqrt(d)) loss in accuracy
 * `compareMeanEstimators.m`: Compares mean estimation algorithms
 * `compareCovEstimators.m`: Compares covariance estimation algorithms
@@ -60,7 +60,7 @@ Comparison files, for evaluating and comparing the performance of estimators for
 
 Reproducibility
 ===
-Figures in the paper can be approximately reproduced by running the following scripts:
+Figures in the paper can be approximately reproduced by running the following scripts, which are in the `comparisonCode` subdirectory:
 * Figure 1: `compareMeanEstimators.m`
 * Figure 2: `compareCovEstimators.m`
 * Figures 3 and 4: `compareGenomicData.m`
