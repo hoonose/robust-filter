@@ -70,3 +70,16 @@ Reference
 This repository is an implementation of our paper [Being Robust (in High Dimensions) Can Be Practical](https://arxiv.org/abs/1703.00893) from ICML 2017, authored by [Ilias Diakonikolas](http://www.iliasdiakonikolas.org/), [Gautam Kamath](http://www.gautamkamath.com/), [Daniel M. Kane](https://cseweb.ucsd.edu/~dakane/), [Jerry Li](http://www.mit.edu/~jerryzli/), [Ankur Moitra](http://people.csail.mit.edu/moitra/), and [Alistair Stewart](http://www.alistair-stewart.com/).
 
 See also our original theory paper, [Robust Estimators in High Dimensions without the Computational Intractability](https://arxiv.org/abs/1604.06443), which appeared in FOCS 2016.
+
+If you use our code or paper, we ask that you please cite:
+```
+@inproceedings{DiakonikolasKKLMS17,
+  author        = {Diakonikolas, Ilias and Kamath, Gautam and Kane, Daniel M. and Li, Jerry and Moitra, Ankur and Stewart, Alistair},
+  title         = {Being Robust (in High Dimensions) Can Be Practical},
+  booktitle     = {Proceedings of the 34th International Conference on Machine Learning},
+  series        = {ICML '17},
+  year          = {2017},
+  pages         = {999--1008},
+  publisher     = {JMLR, Inc.}
+}
+```
